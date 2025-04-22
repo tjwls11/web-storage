@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>로그인</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="flex flex-col items-center justify-center min-h-screen bg-gray-100"
+  >
+    <!-- 로그인 후-->
+    <div
+      id="auth-area"
+      class="hidden flex-col items-center justify-center gap-4 mb-6"
+    >
+      <span
+        id="user-display"
+        class="text-lg font-semibold text-gray-700"
+      ></span>
+
+      <button
+        id="logout-btn"
+        class="mt-2 text-gray-600 hover:text-gray-800 hover:underline"
+      >
+        로그아웃
+      </button>
+    </div>
+
+    <div id="login-form" class="bg-white p-6 w-full max-w-sm">
+      <h2 class="text-xl font-bold mb-4 text-center text-gray-800">로그인</h2>
+      <input
+        id="login-id"
+        type="text"
+        placeholder="아이디"
+        class="w-full mb-2 p-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-gray-400"
+      />
+      <input
+        id="login-pw"
+        type="password"
+        placeholder="비밀번호"
+        class="w-full mb-4 p-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-gray-400"
+      />
+      <button
+        id="login-btn"
+        class="w-full bg-gray-700 text-white py-2 rounded hover:bg-gray-800 transition-colors"
+      >
+        로그인
+      </button>
+
+      <div class="mt-4 text-right">
+        <a
+          href="signup.html"
+          class="text-gray-600 underline hover:text-gray-800"
+          >회원가입</a
+        >
+      </div>
+    </div>
+
+    <script type="module" src="./login.js"></script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>웹스토리지 실습</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen">
+    <!-- 네브바 -->
+    <nav class="fixed top-0 left-0 w-full bg-gray-800 shadow-md z-10">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center">
+            <span class="text-xl font-semibold text-white"
+              >웹스토리지 실습</span
+            >
+          </div>
+          <div class="flex space-x-4">
+            <a
+              href="local/local.html"
+              class="px-3 py-2 text-white font-medium hover:bg-gray-700 rounded"
+              target="content-frame"
+              >localStorage</a
+            >
+            <a
+              href="session/session.html"
+              class="px-3 py-2 text-white font-medium hover:bg-gray-700 rounded"
+              target="content-frame"
+              >sessionStorage</a
+            >
+            <a
+              href="login/login.html"
+              class="px-3 py-2 text-white font-medium hover:bg-gray-700 rounded"
+              target="content-frame"
+              >login</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto px-4 pt-24 pb-6">
+      <div class="h-[calc(100vh-120px)] bg-white">
+        <iframe
+          id="content-frame"
+          name="content-frame"
+          src="local/local.html"
+          class="w-full h-full border-0"
+          title="콘텐츠 영역"
+        >
+        </iframe>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const hash = window.location.hash.substring(1)
+
+        if (hash) {
+          const iframe = document.querySelector('iframe[name="content-frame"]')
+          iframe.src = hash
+
+          const links = document.querySelectorAll('nav a')
+          links.forEach((link) => {
+            if (link.getAttribute('href') === hash) {
+              link.classList.add('bg-gray-700')
+            } else {
+              link.classList.remove('bg-gray-700')
+            }
+          })
+        }
+
+        const links = document.querySelectorAll('nav a')
+        links.forEach((link) => {
+          link.addEventListener('click', function (e) {
+            const href = this.getAttribute('href')
+            window.location.hash = href
+
+            links.forEach((l) => l.classList.remove('bg-gray-700'))
+            this.classList.add('bg-gray-700')
+          })
+        })
+      })
+    </script>
+  </body>
+</html>
